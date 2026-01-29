@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Taxas Austpay</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <div class="logo">a<span class="logo-highlight">ust</span>pay</div>
+    </header>
+
+    <main class="card">
+        <div class="plan-switch-container">
+            <span class="plan-label">Plus</span>
+            <label class="switch">
+                <input type="checkbox" id="planToggle">
+                <span class="slider round"></span>
+            </label>
+            <span class="plan-label active-plan">Premium</span>
+        </div>
+
+        <div class="input-group center">
+            <label>VALOR DA VENDA</label>
+            <div class="amount-wrapper">
+                <input type="number" id="amount" value="100.00" step="0.01">
+                <div class="currency">reais</div>
+                <div class="arrows">
+                    <button onclick="adjustAmount(1)">▲</button>
+                    <button onclick="adjustAmount(-1)">▼</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>BANDEIRA</label>
+            <select id="brand">
+                <option value="visa_master">Visa / Master</option>
+                <option value="elo">Elo</option>
+                <option value="hiper">Hiper</option>
+                <option value="amex">Amex</option>
+                <option value="cabal">Cabal</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>PAGAMENTO</label>
+            <div class="row">
+                <select id="method">
+                    <option value="credit">Crédito</option>
+                    <option value="debit">Débito</option>
+                    <option value="pix">PIX</option>
+                </select>
+                
+                <select id="installments">
+                    <option value="1">1x</option>
+                    </select>
+            </div>
+        </div>
+
+        <div class="toggle-group">
+            <div class="toggle-info">
+                <strong>Repassar taxas</strong>
+                <p>O cliente assume o custo e você recebe o valor integral.</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="passFees">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <hr class="divider">
+
+        <div class="result-section">
+            <p class="result-label">VOCÊ RECEBE</p>
+            <h1 id="receiveAmount">R$ 96,25</h1>
+            
+            <div class="total-box">
+                <span>Total a cobrar</span>
+                <span id="chargeAmount" class="bold">R$ 100,00</span>
+            </div>
+        </div>
+
+        <button class="btn-share">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Compartilhar Simulação
+        </button>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
